@@ -1,0 +1,42 @@
+// Colors
+$clr-gray-100: #eee;
+$clr-gray-400: #999;
+$clr-gray-700: #666;
+$clr-black: #333;
+$clr-yellow: #ffe600;
+$clr-blue: #3483fa;
+
+// Transitions
+$transition_duration: 200ms;
+$transition_function: cubic-bezier(0.1, 0.1, 0.2, 1);
+
+// Typography
+$fs-12: 0.75rem;
+$fs-14: 0.875rem;
+$fs-16: 1rem;
+$fs-18: 1.125rem;
+$fs-24: 1.5rem;
+$fs-28: 1.75rem;
+$fs-46: 2.875rem;
+
+// Spacing
+$gutter-s: 1rem;
+$gutter-m: 2rem;
+$navbar-paddingY: 0.5rem;
+$navbar-paddingX: 1rem;
+
+// Dimensions
+$nav-height: 2.5rem;
+$thumbnailProduct-img-size: 11.25rem;
+$detailsProduct-img-size: 42.5rem;
+
+// Breakpoints
+$max-width: 1440px;
+
+// Shadows
+$shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+$shadow-active: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+  0 8px 10px -6px rgb(0 0 0 / 0.1);
+
+// Borders
+$border-radius: 0.25rem;
