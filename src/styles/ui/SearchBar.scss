@@ -1,0 +1,16 @@
+@use "../utils/mixins" as mixins;
+@use "../utils/variables" as vars;
+
+.searchBar {
+  @include mixins.flexy(center, center);
+  background-color: vars.$clr-yellow;
+  padding-block: vars.$navbar-paddingY;
+  padding-inline: vars.$navbar-paddingX;
+
+  font-size: vars.$fs-18;
+
+  &__container {
+    width: 100%;
+    @include mixins.flexy(space-between, center);
+  }
+}
