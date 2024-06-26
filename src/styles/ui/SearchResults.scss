@@ -1,0 +1,6 @@
+@use "../utils/variables" as vars;
+@use "../utils/mixins" as mixins;
+
+.searchResults {
+  @include mixins.container();
+}
