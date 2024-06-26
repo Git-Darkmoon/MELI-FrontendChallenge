@@ -1,2 +1,7 @@
 @use "./styles/utils/normalize";
 @use "./styles/ui/ui";
+@use "./styles/utils/variables" as vars;
+
+body {
+  background-color: vars.$clr-gray-100;
+}
