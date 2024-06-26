@@ -2,15 +2,52 @@
 @use "../utils/variables" as vars;
 
 .searchBar {
-  @include mixins.flexy(center, center);
   background-color: vars.$clr-yellow;
   padding-block: vars.$navbar-paddingY;
   padding-inline: vars.$navbar-paddingX;
-
   font-size: vars.$fs-18;
+  height: vars.$nav-height;
 
   &__container {
+    max-width: vars.$max-width;
+    margin-inline: auto;
     width: 100%;
-    @include mixins.flexy(space-between, center);
+    padding-inline: vars.$content-paddingX;
+    @include mixins.flexy(center, center);
+    gap: vars.$gutter-m;
+  }
+
+  &__logo {
+    @include mixins.flexy(center, center);
+  }
+
+  &__form {
+    @include mixins.flexy(center, center);
+    flex-grow: 1;
+    box-shadow: vars.$shadow;
+  }
+
+  &__input {
+    width: 100%;
+
+    padding-block: vars.$navbar-paddingY;
+    padding-inline: vars.$navbar-paddingX;
+
+    border-top-left-radius: vars.$border-radius;
+    border-bottom-left-radius: vars.$border-radius;
+
+    &:focus {
+      outline: 1px solid vars.$clr-blue;
+    }
+  }
+
+  &__submitBtn {
+    padding-block: vars.$navbar-paddingY;
+    padding-inline: vars.$navbar-paddingX;
+
+    border-left: 2px solid vars.$clr-gray-100;
+
+    border-bottom-right-radius: vars.$border-radius;
+    border-top-right-radius: vars.$border-radius;
   }
 }
