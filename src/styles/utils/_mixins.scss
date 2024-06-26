@@ -18,3 +18,10 @@
   transition-duration: vars.$transition_duration;
   transition-timing-function: vars.$transition_function;
 }
+
+@mixin container() {
+  max-width: vars.$max-width;
+  padding-inline: vars.$content-paddingX;
+  padding-block: vars.$gutter-s;
+  margin-inline: auto;
+}
