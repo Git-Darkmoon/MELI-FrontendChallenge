@@ -1,5 +1,6 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom"
 import HomeLayout from "./pages/HomeLayout"
+import SearchResult from "./pages/SearchResult"
 
 const router = createBrowserRouter([
   {
@@ -11,11 +12,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/items",
-        element: <div>Items</div>,
+        element: <SearchResult />,
       },
       {
         path: "/items/:id",
-        element: <div>single item</div>,
+        element: <div>single item page</div>,
       },
     ],
   },
