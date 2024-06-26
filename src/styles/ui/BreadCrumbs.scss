@@ -1,0 +1,19 @@
+@use "../utils/variables" as vars;
+@use "../utils/mixins" as mixins;
+
+.breadCrumbs {
+  display: flex;
+  width: 100%;
+  @include mixins.container();
+}
+
+.breadCrumb__link {
+  color: vars.$clr-gray-700;
+  text-decoration: 1px underline vars.$clr-gray-400;
+  text-underline-offset: 2px;
+}
+
+.breadCrumb__icon {
+  padding-inline: vars.$gutter-s;
+  color: vars.$clr-gray-400;
+}
