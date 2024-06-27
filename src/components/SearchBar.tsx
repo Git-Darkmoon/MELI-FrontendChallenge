@@ -17,7 +17,7 @@ function SearchBar() {
     <header className="searchBar">
       <div className="searchBar__container">
         <a className="searchBar__logo" href="/">
-          <img src="/assets/Logo_ML.png" alt="logo" />
+          <img src="/assets/Logo_ML.png" alt="logo" width={53} height={36} />
         </a>
         <form className="searchBar__form" onSubmit={handleSubmit}>
           <input
@@ -39,6 +39,8 @@ function SearchBar() {
             <img
               src="/assets/ic_Search.png"
               alt="Icono de busqueda de elementos"
+              width={18}
+              height={18}
             />
           </button>
         </form>

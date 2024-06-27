@@ -28,7 +28,14 @@ function ProductCard({
                 {price.decimals < 10 ? `0${price.decimals}` : price.decimals}
               </sup>
             </p>
-            {free_shipping && <img src="/assets/ic_shipping.png" />}
+            {free_shipping && (
+              <img
+                src="/assets/ic_shipping.png"
+                alt="free shipping logo "
+                width={18}
+                height={18}
+              />
+            )}
           </div>
           <Link to={`/items/${id}`} className="productCard__title">
             {title}
