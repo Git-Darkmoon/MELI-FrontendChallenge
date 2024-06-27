@@ -1,0 +1,73 @@
+@use "../utils/variables" as vars;
+@use "../utils/mixins" as mixins;
+
+.productDetails {
+  @include mixins.detailsContainer();
+  background-color: vars.$clr-white;
+
+  &__info {
+    @include mixins.flexy(space-between, flex-start);
+  }
+
+  &__shoppingInfo {
+    @include mixins.flexy(flex-start, flex-start, column);
+  }
+
+  &__condition {
+    font-size: vars.$fs-14;
+  }
+
+  &__title {
+    font-size: vars.$fs-24;
+    padding-block-start: vars.$gutter-s;
+  }
+
+  &__price {
+    font-size: vars.$fs-46;
+    padding-block: vars.$gutter-m;
+
+    &--cents {
+      font-size: vars.$fs-18;
+    }
+  }
+
+  &__btn {
+    width: 100%;
+    padding-block: vars.$gutter-s;
+    font-size: vars.$fs-18;
+    color: vars.$clr-white;
+    background-color: vars.$clr-blue;
+    border-radius: vars.$border-radius;
+
+    @include mixins.my_transition(background-color);
+
+    &:hover {
+      background-color: vars.$clr-darkBlue;
+    }
+  }
+
+  &__descContainer {
+    padding-top: vars.$gutter-m;
+  }
+
+  &__descTitle {
+    font-size: vars.$fs-28;
+    font-weight: 400;
+  }
+
+  &__desc {
+    padding-block: vars.$gutter-m;
+    max-width: vars.$detailsProduct-img-size;
+    text-align: justify;
+    color: vars.$clr-gray-700;
+    opacity: 0.8;
+    font-size: vars.$fs-16;
+  }
+
+  &__image {
+    width: vars.$detailsProduct-img-size;
+    height: vars.$detailsProduct-img-size;
+    object-fit: contain;
+    object-position: center;
+  }
+}

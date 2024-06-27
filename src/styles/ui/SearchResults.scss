@@ -4,3 +4,50 @@
 .searchResults {
   @include mixins.container();
 }
+
+.productCard {
+  @include mixins.flexy(space-between, flex-start);
+  padding: vars.$gutter-s;
+  background-color: vars.$clr-white;
+  border-bottom: 1px solid vars.$clr-gray-100;
+
+  &__content {
+    @include mixins.flexy(space-between, flex-start);
+    gap: vars.$gutter-s;
+  }
+
+  &__image {
+    width: vars.$thumbnailProduct-img-size;
+    height: vars.$thumbnailProduct-img-size;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &__details {
+    @include mixins.flexy(center, flex-start, column);
+    padding-top: vars.$gutter-s;
+
+    gap: vars.$gutter-s;
+  }
+
+  &__priceDetails {
+    @include mixins.flexy(flex-start, center);
+    gap: vars.$gutter-s;
+    font-size: vars.$fs-24;
+
+    &--cents {
+      font-size: vars.$fs-14;
+    }
+  }
+
+  &__title {
+    font-size: vars.$fs-18;
+  }
+
+  &__condition {
+    font-size: vars.$fs-12;
+    color: vars.$clr-gray-400;
+    padding-top: vars.$gutter-s;
+    text-transform: capitalize;
+  }
+}
