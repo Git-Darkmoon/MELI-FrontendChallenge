@@ -25,3 +25,10 @@
   padding-block: vars.$gutter-s;
   margin-inline: auto;
 }
+
+@mixin detailsContainer() {
+  max-width: 1100px;
+  padding: vars.$gutter-m;
+  margin-inline: auto;
+  border-radius: vars.$border-radius;
+}

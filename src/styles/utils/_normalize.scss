@@ -1,6 +1,9 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+@import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap");
 
+:root {
+  font-family: "Figtree", -apple-system, Roboto, Arial, sans-serif;
+  font-optical-sizing: auto;
+  letter-spacing: -0.3px;
   font-synthesis: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
