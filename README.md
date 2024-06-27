@@ -33,5 +33,5 @@ Sigue los siguientes pasos para obtener una copia del proyecto:
 1. Clona el repositorio:
    ```bash
    git clone https://github.com/Git-Darkmoon/MELI-FrontendChallenge
-   cd MELI_FrontChallenge
+   cd MELI-FrontChallenge
    ```
