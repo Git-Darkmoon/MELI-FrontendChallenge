@@ -231,22 +231,175 @@ export type VariationsDatumAttribute = {
   readonly value_type: string
 }
 
+export type Author = {
+  name: string
+  lastname: string
+}
+
 export type TransformedData = {
-  author: {
-    name: string
-    lastname: string
-  }
+  author: Author
   categories: string[]
-  items: {
-    id: string
-    title: string
-    price: {
-      currency: string
-      amount: number
-      decimals: number
-    }
-    picture: string
-    condition: string
-    free_shipping: boolean
-  }[]
+  items: TransformedDataItem[]
+}
+
+export type TransformedDataItem = {
+  id: string
+  title: string
+  price: {
+    currency: string
+    amount: number
+    decimals: number
+  }
+  picture: string
+  condition: string
+  free_shipping: boolean
+}
+
+export type ProductDetailsAPIResponse = {
+  readonly id: string
+  readonly site_id: string
+  readonly title: string
+  readonly seller_id: number
+  readonly category_id: string
+  readonly official_store_id: number
+  readonly price: number
+  readonly base_price: number
+  readonly original_price: null
+  readonly currency_id: string
+  readonly initial_quantity: number
+  readonly sale_terms: SaleTerm[]
+  readonly buying_mode: string
+  readonly listing_type_id: string
+  readonly condition: string
+  readonly permalink: string
+  readonly thumbnail_id: string
+  readonly thumbnail: string
+  readonly pictures: Picture[]
+  readonly video_id: null
+  readonly descriptions: unknown[]
+  readonly accepts_mercadopago: boolean
+  readonly non_mercado_pago_payment_methods: unknown[]
+  readonly shipping: ProductDetailsShipping
+  readonly international_delivery_mode: string
+  readonly seller_address: SellerAddress
+  readonly seller_contact: null
+  readonly location: Location
+  readonly coverage_areas: unknown[]
+  readonly attributes: Attribute[]
+  readonly listing_source: string
+  readonly variations: unknown[]
+  readonly status: string
+  readonly sub_status: unknown[]
+  readonly tags: string[]
+  readonly warranty: string
+  readonly catalog_product_id: string
+  readonly domain_id: string
+  readonly parent_item_id: null
+  readonly deal_ids: unknown[]
+  readonly automatic_relist: boolean
+  readonly date_created: Date
+  readonly last_updated: Date
+  readonly health: null
+  readonly catalog_listing: boolean
+}
+
+export type Attribute = {
+  readonly id: string
+  readonly name: string
+  readonly value_id: null | string
+  readonly value_name: string
+  readonly values: ProductDetailsValue[]
+  readonly value_type: ValueType
+}
+
+export type ValueType = "string" | "boolean" | "list"
+
+export type ProductDetailsValue = {
+  readonly id: null | string
+  readonly name: string
+  readonly struct: Struct | null
+}
+
+export type ProductDetailsStruct = {
+  readonly number: number
+  readonly unit: string
+}
+
+export type Location = unknown
+
+export type Picture = {
+  readonly id: string
+  readonly url: string
+  readonly secure_url: string
+  readonly size: string
+  readonly max_size: string
+  readonly quality: string
+}
+
+export type SaleTerm = {
+  readonly id: string
+  readonly name: string
+  readonly value_id: null | string
+  readonly value_name: string
+  readonly value_struct: Struct | null
+  readonly values: Value[]
+  readonly value_type: string
+}
+
+export type SellerAddress = {
+  readonly city: City
+  readonly state: City
+  readonly country: City
+  readonly search_location: SearchLocation
+  readonly id: number
+}
+
+export type City = {
+  readonly id: string
+  readonly name: string
+}
+
+export type SearchLocation = {
+  readonly neighborhood: City
+  readonly city: City
+  readonly state: City
+}
+
+export type ProductDetailsShipping = {
+  readonly mode: string
+  readonly methods: unknown[]
+  readonly tags: string[]
+  readonly dimensions: null
+  readonly local_pick_up: boolean
+  readonly free_shipping: boolean
+  readonly logistic_type: string
+  readonly store_pick_up: boolean
+}
+
+export type DescriptionResponse = {
+  readonly text: string
+  readonly plain_text: string
+  readonly last_updated: Date
+  readonly date_created: Date
+  readonly snapshot: unknown
+}
+
+export type TransformedItem = {
+  id: string
+  title: string
+  price: {
+    currency: string
+    amount: number
+    decimals: number
+  }
+  picture: Picture[]
+  condition: string
+  free_shipping: boolean
+  sold_quantity: number
+  description: string
+}
+
+export type ProductDetailsTransformedData = {
+  author: Author
+  item: TransformedItem
 }
