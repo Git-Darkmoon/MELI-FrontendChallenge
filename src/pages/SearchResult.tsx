@@ -1,6 +1,7 @@
 import { TransformedDataItem } from "../lib/types"
 import ProductCard from "../components/ProductCard"
 import { useLookQuery, useSearchProduct } from "../lib/hooks"
+import Loading from "../components/Loading"
 
 const SearchResult = () => {
   const query = useLookQuery().get("search")
@@ -14,7 +15,7 @@ const SearchResult = () => {
   if (isLoading) {
     return (
       <section className="searchResults">
-        <p>Loading...</p>
+        <Loading />
       </section>
     )
   }
