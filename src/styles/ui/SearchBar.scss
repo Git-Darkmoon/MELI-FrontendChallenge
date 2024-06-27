@@ -2,6 +2,7 @@
 @use "../utils/variables" as vars;
 
 .searchBar {
+  @include mixins.flexy(center, center);
   background-color: vars.$clr-yellow;
   padding-block: vars.$navbar-paddingY;
   padding-inline: vars.$navbar-paddingX;
