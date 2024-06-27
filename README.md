@@ -1,7 +1,7 @@
 # MELI Frontend Challenge
 
 [![image](https://github.com/Git-Darkmoon/MELI-FrontendChallenge/assets/80002392/29946249-d9a1-4818-a8ca-62f29f8927ac)
-](https://comfys.vercel.app/)
+](https://meli-react-challenge.vercel.app/)
 
 
 ## Descripción del Challenge
