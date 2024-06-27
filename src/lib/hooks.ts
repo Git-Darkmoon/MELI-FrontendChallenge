@@ -11,7 +11,10 @@ export function useGetPathname() {
   return useLocation().pathname
 }
 
-export function useSearchProduct(query: string, numberOfItemsToShow: number) {
+export function useSearchProduct(
+  query: string,
+  numberOfItemsToShow: number = 4
+) {
   return useQuery<TransformedData>({
     queryKey: ["search", query],
     queryFn: () => fetchTransformedData(query),
