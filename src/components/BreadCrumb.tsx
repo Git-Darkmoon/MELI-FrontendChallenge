@@ -1,28 +1,39 @@
-import { Link, useLocation } from "react-router-dom"
+import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
+import { fetchTransformedData } from "../lib/utils"
+import { useLookQuery } from "../lib/hooks"
 
 function BreadCrumb() {
-  const location = useLocation()
+  const [categories, setCategories] = useState<string[]>()
+  const query = useLookQuery().get("search")
 
-  //   console.log(location)
+  const numberOfCategoriesToShow = 4
 
-  let currentPath = ""
+  useEffect(() => {
+    fetchTransformedData(query as string)
+      .then((transformedData) => {
+        setCategories(
+          transformedData.categories.slice(0, numberOfCategoriesToShow)
+        )
+      })
+      .catch((error) => {
+        console.error("Error fetching search results:", error)
+      })
+  }, [query])
 
-  const crumbs = location.pathname
-    .split("/")
-    .filter((crumb) => crumb !== "")
-    .map((crumb) => {
-      currentPath += `/${crumb}`
-
-      return (
-        <li key={crumb}>
-          <Link className="breadCrumb__link" to={currentPath}>
-            {crumb}
-          </Link>
-          <span className="breadCrumb__icon">&gt;</span>
-        </li>
-      )
-    })
-
-  return <ul className="breadCrumbs">{crumbs}</ul>
+  return (
+    <nav aria-label="breadcrumb">
+      <ol className="breadCrumbs">
+        {categories?.map((category, index) => (
+          <li key={index} className="breadcrumb-item">
+            <Link className="breadCrumb__link" to={`/items?search=${category}`}>
+              {category}
+            </Link>
+            <span>&gt;</span>
+          </li>
+        ))}
+      </ol>
+    </nav>
+  )
 }
 export default BreadCrumb

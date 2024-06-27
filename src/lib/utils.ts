@@ -1,3 +1,4 @@
+import { meliFetch } from "./axios"
 import type {
   SearchAPIResponse,
   Result,
@@ -5,14 +6,11 @@ import type {
   DescriptionResponse,
   ProductDetailsTransformedData,
 } from "./types" // Import your types here
-import axios from "axios"
 
 export const fetchTransformedData = async (query: string) => {
   try {
-    const response = await fetch(
-      `https://api.mercadolibre.com/sites/MLA/search?q=${query}`
-    )
-    const data: SearchAPIResponse = await response.json()
+    const response = await meliFetch(`/sites/MLA/search?q=${query}`)
+    const data: SearchAPIResponse = response.data
 
     const transformedData = {
       author: {
@@ -36,8 +34,6 @@ export const fetchTransformedData = async (query: string) => {
       })),
     }
 
-    console.log(transformedData)
-
     return transformedData
   } catch (error) {
     console.error("Error fetching and transforming data:", error)
@@ -59,12 +55,8 @@ export async function fetchProductDetails(
 ): Promise<ProductDetailsTransformedData> {
   try {
     const [itemResponse, descriptionResponse] = await Promise.all([
-      axios.get<ProductDetailsAPIResponse>(
-        `https://api.mercadolibre.com/items/${productID}`
-      ),
-      axios.get<DescriptionResponse>(
-        `https://api.mercadolibre.com/items/${productID}/description`
-      ),
+      meliFetch<ProductDetailsAPIResponse>(`/items/${productID}`),
+      meliFetch<DescriptionResponse>(`/items/${productID}/description`),
     ])
 
     const itemData = itemResponse.data

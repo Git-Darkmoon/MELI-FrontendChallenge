@@ -9,8 +9,7 @@
 
 .breadCrumb__link {
   color: vars.$clr-gray-700;
-  text-decoration: 1px underline vars.$clr-gray-400;
-  text-underline-offset: 2px;
+  padding-inline: vars.$gutter-s;
 }
 
 .breadCrumb__icon {

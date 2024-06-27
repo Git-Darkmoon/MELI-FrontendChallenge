@@ -34,15 +34,22 @@ function ProductCard({
                 alt="free shipping logo "
                 width={18}
                 height={18}
+                loading="lazy"
               />
             )}
           </div>
-          <Link to={`/items/${id}`} className="productCard__title">
+          <Link
+            to={`/items/${id}`}
+            target="_blank"
+            className="productCard__title"
+          >
             {title}
           </Link>
         </div>
       </div>
-      <div className="productCard__condition">{condition}</div>
+      <div className="productCard__condition">
+        {condition ? "Nuevo" : "Usado"}
+      </div>
     </article>
   )
 }

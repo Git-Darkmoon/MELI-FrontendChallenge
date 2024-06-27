@@ -1,39 +1,16 @@
-import { useEffect, useState } from "react"
-import { useLocation } from "react-router-dom"
-import { fetchProductDetails, formatPriceToARS } from "../lib/utils"
-import { ProductDetailsTransformedData } from "../lib/types"
-
-function useGetPathname() {
-  return useLocation().pathname
-}
+import { formatPriceToARS } from "../lib/utils"
+import { useGetPathname, useProductDetails } from "../lib/hooks"
 
 function ProductDetails() {
-  const [productData, setProductData] =
-    useState<ProductDetailsTransformedData | null>(null)
-  const [loading, setLoading] = useState<boolean>(true)
-  const [error, setError] = useState<string | null>(null)
-
   const productID = useGetPathname().split("/")[2]
-  console.log(productID)
+  const {
+    data: productData,
+    isLoading,
+    isError,
+    error,
+  } = useProductDetails(productID)
 
-  useEffect(() => {
-    const getProductDetails = async () => {
-      try {
-        const data = await fetchProductDetails(productID)
-        setProductData(data)
-        console.log(data)
-        setLoading(false)
-      } catch (error) {
-        console.error("Error fetching product details:", error)
-        setError("Error fetching product details")
-        setLoading(false)
-      }
-    }
-
-    getProductDetails()
-  }, [productID])
-
-  if (loading) {
+  if (isLoading) {
     return (
       <section className="productDetails">
         <h1>Loading...</h1>
@@ -41,10 +18,10 @@ function ProductDetails() {
     )
   }
 
-  if (error) {
+  if (isError) {
     return (
       <section className="productDetails">
-        <h1>{error}</h1>
+        <h1>{error instanceof Error ? error.message : error}</h1>
       </section>
     )
   }
@@ -56,8 +33,6 @@ function ProductDetails() {
       </section>
     )
   }
-
-  console.log(productData.item)
 
   return (
     <section className="productDetails">
