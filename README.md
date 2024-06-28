@@ -1,30 +1,37 @@
-# React + TypeScript + Vite
+# MELI Frontend Challenge
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![image](https://github.com/Git-Darkmoon/MELI-FrontendChallenge/assets/80002392/29946249-d9a1-4818-a8ca-62f29f8927ac)
+](https://meli-react-challenge.vercel.app/)
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Descripción del Challenge
 
-## Expanding the ESLint configuration
+La aplicación consta de tres componentes principales: la caja de búsqueda, la visualización de resultados, y la descripción del detalle del producto. En la vista de caja de búsqueda, debería poder ingresar el producto a buscar y al enviar el formulario navegar a la vista de Resultados de búsqueda, visualizando solo 4 productos. Luego, al hacer clic sobre uno de ellos, debería navegar a la vista de Detalle de Producto. Dado un id de producto, debería poder ingresar directamente a la vista de detalle de producto.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Tech Stack
 
-- Configure the top-level `parserOptions` property like this:
+El proyecto se desarrolló con las siguientes tecnologías:
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+[![Tech Stack for Comfy Store Redesign](https://skillicons.dev/icons?i=react,ts,sass,nodejs,express,pnpm&perline=6&theme=dark)](https://nextjs.org/)
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- **React Query**: Una librería para obtener, almacenar en caché y actualizar datos asíncronos en React.
+- **Axios**: Un cliente HTTP basado en promesas para el navegador y Node.js.
+
+
+## Getting Started
+
+Sigue los siguientes pasos para obtener una copia del proyecto:
+
+> [!Important]
+> Debes tener instalado:
+> - Node.js (v16.x o superior)
+> - pnpm ( v8.x or superior ) o npm (v6.x or later) o yarn (v1.x o superior)
+
+
+### Installation
+
+1. Clona el repositorio:
+   ```bash
+   git clone https://github.com/Git-Darkmoon/MELI-FrontendChallenge
+   cd MELI-FrontChallenge
+   ```
