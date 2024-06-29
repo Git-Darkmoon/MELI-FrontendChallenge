@@ -1,9 +1,14 @@
 const express = require("express")
 const app = express()
+const cors = require("cors")
+
 const dotenv = require("dotenv")
 const meliFetch = require("./utils/axios")
 
 dotenv.config()
+
+// Use CORS middleware
+app.use(cors())
 
 const PORT = process.env.PORT
 
