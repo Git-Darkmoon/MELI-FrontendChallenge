@@ -1,5 +1,5 @@
 import axios from "axios"
 
 export const meliFetch = axios.create({
-  baseURL: "https://api.mercadolibre.com",
+  baseURL: "https://meli-challenge-api.vercel.app/api",
 })
