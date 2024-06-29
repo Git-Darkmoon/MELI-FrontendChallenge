@@ -1,18 +1,15 @@
 const express = require("express")
-const axios = require("axios")
 const app = express()
-const PORT = 3000
+const dotenv = require("dotenv")
+const meliFetch = require("./utils/axios")
+
+dotenv.config()
+
+const PORT = process.env.PORT
 
 const AUTHOR = {
   name: "Nicolas",
   lastname: "Mayorga",
-}
-
-// Helper function to get decimals from price
-const getDecimals = (price) => {
-  const priceStr = price.toString()
-  const decimalIndex = priceStr.indexOf(".")
-  return decimalIndex !== -1 ? priceStr.substring(decimalIndex + 1).length : 0
 }
 
 // Endpoint /api/items?q=:query
@@ -23,69 +20,66 @@ app.get("/api/items", async (req, res) => {
   }
 
   try {
-    const response = await axios.get(
-      `https://api.mercadolibre.com/sites/MLA/search?q=${query}`
-    )
-    const items = response.data.results.map((item) => ({
-      id: item.id,
-      title: item.title,
-      price: {
-        currency: item.currency_id,
-        amount: Math.floor(item.price),
-        decimals: getDecimals(item.price),
-      },
-      picture: item.thumbnail,
-      condition: item.condition,
-      free_shipping: item.shipping.free_shipping,
-    }))
+    const response = await meliFetch(`/sites/MLA/search?q=${query}`)
+    const data = response.data
 
-    const categories =
-      response.data.filters
-        .find((filter) => filter.id === "category")
-        ?.values[0]?.path_from_root.map((category) => category.name) || []
-
-    res.json({
+    const searchResultsData = {
       author: AUTHOR,
-      categories,
-      items,
-    })
+      categories: data.available_filters
+        .filter((filter) => filter.id === "category")
+        .flatMap((filter) => filter.values.map((value) => value.name)),
+      items: data.results.map((item) => ({
+        id: item.id,
+        title: item.title,
+        price: {
+          currency: item.currency_id,
+          amount: item.price,
+          decimals: parseFloat((item.price % 1).toFixed(2).substring(2)),
+        },
+        picture: item.thumbnail,
+        condition: item.condition,
+        free_shipping: item.shipping.free_shipping,
+      })),
+    }
+
+    return res.json(searchResultsData)
   } catch (error) {
     res.status(500).json({ error: "Error fetching data from MercadoLibre" })
   }
 })
 
 // Endpoint /api/items/:id
-app.get("/api/items/:id", async (req, res) => {
-  const id = req.params.id
+app.get("/api/items/:productID", async (req, res) => {
+  const { productID } = req.params
 
   try {
     const [itemResponse, descriptionResponse] = await Promise.all([
-      axios.get(`https://api.mercadolibre.com/items/${id}`),
-      axios.get(`https://api.mercadolibre.com/items/${id}/description`),
+      meliFetch(`/items/${productID}`),
+      meliFetch(`/items/${productID}/description`),
     ])
 
     const itemData = itemResponse.data
     const descriptionData = descriptionResponse.data
 
-    const item = {
-      id: itemData.id,
-      title: itemData.title,
-      price: {
-        currency: itemData.currency_id,
-        amount: Math.floor(itemData.price),
-        decimals: getDecimals(itemData.price),
+    const productDetailsData = {
+      author: AUTHOR,
+      item: {
+        id: itemData.id,
+        title: itemData.title,
+        price: {
+          currency: itemData.currency_id,
+          amount: Math.floor(itemData.price),
+          decimals: Math.round((itemData.price % 1) * 100),
+        },
+        picture: itemData.pictures,
+        condition: itemData.condition,
+        free_shipping: itemData.shipping.free_shipping,
+        sold_quantity: itemData.initial_quantity,
+        description: descriptionData.plain_text,
       },
-      picture: itemData.pictures[0]?.url || "",
-      condition: itemData.condition,
-      free_shipping: itemData.shipping.free_shipping,
-      sold_quantity: itemData.sold_quantity,
-      description: descriptionData.plain_text || "",
     }
 
-    res.json({
-      author: AUTHOR,
-      item,
-    })
+    return res.json(productDetailsData)
   } catch (error) {
     res.status(500).json({ error: "Error fetching data from MercadoLibre" })
   }
