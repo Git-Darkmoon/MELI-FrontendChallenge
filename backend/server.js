@@ -48,7 +48,7 @@ app.get("/api/items", async (req, res) => {
   }
 })
 
-// Endpoint /api/items/:id
+// Endpoint /api/items/:productID
 app.get("/api/items/:productID", async (req, res) => {
   const { productID } = req.params
 
