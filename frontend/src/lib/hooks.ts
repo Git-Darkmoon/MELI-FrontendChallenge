@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query"
 import { useLocation } from "react-router-dom"
 import { ProductDetailsTransformedData, TransformedData } from "./types"
-import { fetchProductDetails, fetchTransformedData } from "./utils"
+import { fetchProductDetails, fetchResultsData } from "./utils"
 
 export function useLookQuery() {
   return new URLSearchParams(useLocation().search)
@@ -17,8 +17,8 @@ export function useSearchProduct(
 ) {
   return useQuery<TransformedData>({
     queryKey: ["search", query],
-    queryFn: () => fetchTransformedData(query),
-    select: (data) => ({
+    queryFn: () => fetchResultsData(query),
+    select: (data: TransformedData) => ({
       ...data,
       items: data.items.slice(0, numberOfItemsToShow),
     }),
