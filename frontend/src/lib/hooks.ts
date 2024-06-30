@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query"
 import { useLocation } from "react-router-dom"
-import { ProductDetailsTransformedData, TransformedData } from "./types"
+import { ProductDetailsData, SearchResultsData } from "./types"
 import { fetchProductDetails, fetchResultsData } from "./utils"
 
 export function useLookQuery() {
@@ -15,10 +15,10 @@ export function useSearchProduct(
   query: string,
   numberOfItemsToShow: number = 4
 ) {
-  return useQuery<TransformedData>({
+  return useQuery<SearchResultsData>({
     queryKey: ["search", query],
     queryFn: () => fetchResultsData(query),
-    select: (data: TransformedData) => ({
+    select: (data: SearchResultsData) => ({
       ...data,
       items: data.items.slice(0, numberOfItemsToShow),
     }),
@@ -26,7 +26,7 @@ export function useSearchProduct(
 }
 
 export function useProductDetails(productID: string) {
-  return useQuery<ProductDetailsTransformedData>({
+  return useQuery<ProductDetailsData>({
     queryKey: ["product", productID],
     queryFn: () => fetchProductDetails(productID),
   })

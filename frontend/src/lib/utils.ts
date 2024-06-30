@@ -1,12 +1,12 @@
 import { meliFetch } from "./axios"
-import type { ProductDetailsTransformedData, TransformedData } from "./types"
+import type { ProductDetailsData, SearchResultsData } from "./types"
 
 export const fetchResultsData = async (
   query: string
-): Promise<TransformedData> => {
+): Promise<SearchResultsData> => {
   try {
     const response = await meliFetch(`/items?q=${query}`)
-    const data: TransformedData = response.data
+    const data: SearchResultsData = response.data
 
     return data
   } catch (error) {
@@ -17,10 +17,10 @@ export const fetchResultsData = async (
 
 export async function fetchProductDetails(
   productID: string
-): Promise<ProductDetailsTransformedData> {
+): Promise<ProductDetailsData> {
   try {
     const response = await meliFetch(`/items/${productID}`)
-    const data: ProductDetailsTransformedData = response.data
+    const data: ProductDetailsData = response.data
 
     return data
   } catch (error) {

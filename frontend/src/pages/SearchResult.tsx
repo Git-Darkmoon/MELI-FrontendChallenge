@@ -1,4 +1,4 @@
-import { TransformedDataItem } from "../lib/types"
+import { SearchedItem } from "../lib/types"
 import ProductCard from "../components/ProductCard"
 import { useLookQuery, useSearchProduct } from "../lib/hooks"
 import Loading from "../components/Loading"
@@ -30,7 +30,7 @@ const SearchResult = () => {
 
   return (
     <section className="searchResults">
-      {data?.items.map((item: TransformedDataItem) => {
+      {data?.items.map((item: SearchedItem) => {
         return <ProductCard key={item.id} {...item} />
       })}
     </section>

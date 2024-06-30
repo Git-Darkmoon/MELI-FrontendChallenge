@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { TransformedDataItem } from "../lib/types"
+import { SearchedItem } from "../lib/types"
 import { formatPriceToARS } from "../lib/utils"
 
 function ProductCard({
@@ -9,7 +9,7 @@ function ProductCard({
   free_shipping,
   price,
   title,
-}: TransformedDataItem) {
+}: SearchedItem) {
   return (
     <article className="productCard">
       <div className="productCard__content">
