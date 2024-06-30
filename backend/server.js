@@ -87,8 +87,8 @@ app.get("/api/items/:productID", async (req, res) => {
         free_shipping: itemData.shipping.free_shipping,
         sold_quantity: itemData.initial_quantity,
         description: descriptionData.plain_text,
+        categories: categoriesList,
       },
-      categories: categoriesList,
     }
 
     return res.json(productDetailsData)
