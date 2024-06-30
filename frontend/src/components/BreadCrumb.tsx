@@ -14,14 +14,16 @@ function BreadCrumb({ categoriesList }: BreadCrumbProps) {
           <button className="breadCrumb__link" onClick={() => navigate(-1)}>
             Volver
           </button>
-          <span>|</span>
+          <span className="breadCrumb__linkSeparator">|</span>
         </li>
         {categoriesList?.map((category, index) => (
           <li key={index} className="breadcrumb-item">
             <Link className="breadCrumb__link" to={`/items?search=${category}`}>
               {category}
             </Link>
-            {index !== categoriesList.length - 1 && <span>&gt;</span>}
+            {index !== categoriesList.length - 1 && (
+              <span className="breadCrumb__linkSeparator">&gt;</span>
+            )}
           </li>
         ))}
       </ol>

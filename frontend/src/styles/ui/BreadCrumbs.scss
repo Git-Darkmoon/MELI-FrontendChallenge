@@ -6,12 +6,17 @@
   width: 100%;
   @include mixins.container();
   padding-bottom: 0;
+  flex-wrap: wrap;
 }
 
 .breadCrumb__link {
   color: vars.$clr-gray-700;
   padding-inline: vars.$gutter-s;
   font-size: vars.$fs-14;
+}
+
+.breadCrumb__linkSeparator {
+  color: vars.$clr-gray-400;
 }
 
 .breadCrumb__icon {

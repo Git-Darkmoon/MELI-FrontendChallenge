@@ -90,3 +90,9 @@
     aspect-ratio: 1 / 1;
   }
 }
+
+@media (width <= 768px) {
+  .productDetails__info {
+    flex-direction: column;
+  }
+}

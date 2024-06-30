@@ -51,3 +51,9 @@
     text-transform: capitalize;
   }
 }
+
+@media (width <= 512px) {
+  .productCard__content {
+    flex-direction: column;
+  }
+}
