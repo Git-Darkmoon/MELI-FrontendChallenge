@@ -1,5 +1,6 @@
 import { formatPriceToARS } from "../lib/utils"
 import { useGetPathname, useProductDetails } from "../lib/hooks"
+import Loading from "../components/Loading"
 
 function ProductDetails() {
   const productID = useGetPathname().split("/")[2]
@@ -11,11 +12,7 @@ function ProductDetails() {
   } = useProductDetails(productID)
 
   if (isLoading) {
-    return (
-      <section className="productDetails">
-        <h1>Loading...</h1>
-      </section>
-    )
+    return <Loading />
   }
 
   if (isError) {
