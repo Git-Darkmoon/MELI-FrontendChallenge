@@ -1,12 +1,16 @@
 import { Link } from "react-router-dom"
-import { useLookQuery, useSearchProduct } from "../lib/hooks"
+// import { useLookQuery, useSearchProduct } from "../lib/hooks"
 
-function BreadCrumb() {
-  const query = useLookQuery().get("search")
-  const numberOfCategoriesToShow = 4
+type BreadCrumbProps = {
+  categoriesList: string[]
+}
 
-  const { data } = useSearchProduct(query as string)
-  const categoriesList = data?.categories.slice(0, numberOfCategoriesToShow)
+function BreadCrumb({ categoriesList }: BreadCrumbProps) {
+  // const query = useLookQuery().get("search")
+  // const numberOfCategoriesToShow = 4
+
+  // const { data } = useSearchProduct(query as string)
+  // const categoriesList = data?.categories.slice(0, numberOfCategoriesToShow)
 
   return (
     <nav aria-label="breadcrumb">
@@ -16,7 +20,7 @@ function BreadCrumb() {
             <Link className="breadCrumb__link" to={`/items?search=${category}`}>
               {category}
             </Link>
-            <span>&gt;</span>
+            {index !== categoriesList.length - 1 && <span>&gt;</span>}
           </li>
         ))}
       </ol>
