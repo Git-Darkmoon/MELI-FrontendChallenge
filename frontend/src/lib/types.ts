@@ -4,22 +4,22 @@ export type Author = {
 }
 
 export type SearchResultsData = {
-  author: Author
-  categories: string[]
-  items: SearchedItem[]
+  readonly author: Author
+  readonly categories: string[]
+  readonly items: SearchedItem[]
 }
 
 export type SearchedItem = {
-  id: string
-  title: string
+  readonly id: string
+  readonly title: string
   price: {
     currency: string
     amount: number
     decimals: number
   }
-  picture: string
-  condition: string
-  free_shipping: boolean
+  readonly picture: string
+  readonly condition: string
+  readonly free_shipping: boolean
 }
 
 export type Picture = {
@@ -32,22 +32,22 @@ export type Picture = {
 }
 
 export type ItemDetails = {
-  id: string
-  title: string
+  readonly id: string
+  readonly title: string
   price: {
     currency: string
     amount: number
     decimals: number
   }
-  picture: Picture[]
-  condition: string
-  free_shipping: boolean
-  sold_quantity: number
-  description: string
+  readonly picture: Picture[]
+  readonly condition: string
+  readonly free_shipping: boolean
+  readonly sold_quantity: number
+  readonly description: string
   categories: string[]
 }
 
 export type ProductDetailsData = {
-  author: Author
-  item: ItemDetails
+  readonly author: Author
+  readonly item: ItemDetails
 }
