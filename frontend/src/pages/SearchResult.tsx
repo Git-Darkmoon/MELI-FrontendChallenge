@@ -2,6 +2,7 @@ import { SearchedItem } from "../lib/types"
 import ProductCard from "../components/ProductCard"
 import { useLookQuery, useSearchProduct } from "../lib/hooks"
 import Loading from "../components/Loading"
+import BreadCrumb from "../components/BreadCrumb"
 
 const SearchResult = () => {
   const query = useLookQuery().get("search")
@@ -11,6 +12,8 @@ const SearchResult = () => {
     query as string,
     numberOfItemsToShow
   )
+
+  const categoriesList = data?.categories.slice(0, numberOfItemsToShow)
 
   if (isLoading) {
     return (
@@ -30,6 +33,7 @@ const SearchResult = () => {
 
   return (
     <section className="searchResults">
+      <BreadCrumb categoriesList={categoriesList as string[]} />
       {data?.items.map((item: SearchedItem) => {
         return <ProductCard key={item.id} {...item} />
       })}

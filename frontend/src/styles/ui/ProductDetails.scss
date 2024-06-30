@@ -10,6 +10,7 @@
   }
 
   &__shoppingInfo {
+    max-width: 400px;
     @include mixins.flexy(flex-start, flex-start, column);
   }
 
@@ -69,5 +70,6 @@
     height: vars.$detailsProduct-img-size;
     object-fit: contain;
     object-position: center;
+    aspect-ratio: 1 / 1;
   }
 }

@@ -5,11 +5,13 @@
   display: flex;
   width: 100%;
   @include mixins.container();
+  padding-bottom: 0;
 }
 
 .breadCrumb__link {
   color: vars.$clr-gray-700;
   padding-inline: vars.$gutter-s;
+  font-size: vars.$fs-14;
 }
 
 .breadCrumb__icon {

@@ -49,7 +49,7 @@ function NotFound() {
                 stroke="#CCC"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                stroke-width="2"
+                strokeWidth="2"
                 d="M198 132H59"
                 data-reactid="15"
               ></path>
@@ -57,7 +57,7 @@ function NotFound() {
                 stroke="#999"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                stroke-width="2"
+                strokeWidth="2"
                 d="M225 134v7.285c0 4.325-4.247 10.715-13.393 10.715H46.489"
                 data-reactid="16"
               ></path>
@@ -65,7 +65,7 @@ function NotFound() {
                 stroke="#CCC"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                stroke-width="2"
+                strokeWidth="2"
                 d="M45 97V28a6 6 0 0 1 6-6h155a6 6 0 0 1 6 6v99"
                 data-reactid="17"
               ></path>
@@ -73,14 +73,14 @@ function NotFound() {
                 stroke="#CCC"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                stroke-width="2"
+                strokeWidth="2"
                 d="M198 132.492V37.367c0-1.599-1.397-2.367-3-2.367l-112.35-.11-13.717.094-8.016.016c-1.041 0-1.6.524-1.603 1.567"
                 data-reactid="18"
               ></path>
               <path
                 stroke="#CCC"
                 stroke-linecap="round"
-                stroke-width="2"
+                strokeWidth="2"
                 d="M113.857 50.642c-7.217 3.53-13.356 9.515-17.051 17.44m-3.464 15.03c-.125 8.971 3.073 17.673 8.959 24.283a34.437 34.437 0 0 0 11.2 8.329c9.825 4.58 20.731 4.139 29.925-.271 7.325-3.513 13.564-9.546 17.302-17.563 2.58-5.533 3.67-11.371 3.436-17.045-.282-6.799-2.468-13.362-6.275-18.882a34.465 34.465 0 0 0-13.857-11.713 34.436 34.436 0 0 0-13.932-3.236c-5.63-.107-11.2 1.16-16.243 3.628"
                 data-reactid="19"
               ></path>
@@ -88,7 +88,7 @@ function NotFound() {
                 <path
                   stroke="#CCC"
                   stroke-linecap="square"
-                  stroke-width="2"
+                  strokeWidth="2"
                   d="M162.369 44.033l-9.286 10.683"
                   data-reactid="21"
                 ></path>
@@ -100,7 +100,7 @@ function NotFound() {
                 <path
                   stroke="#CCC"
                   stroke-linecap="round"
-                  stroke-width="2"
+                  strokeWidth="2"
                   d="M161.755 35.04c-2.12 2.438-1.657 6.312 1.032 8.649 2.689 2.337 6.589 2.257 8.71-.182l14.487-16.666 13.418-15.436"
                   data-reactid="23"
                 ></path>
