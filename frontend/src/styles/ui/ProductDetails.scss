@@ -64,6 +64,23 @@
     opacity: 0.8;
     font-size: vars.$fs-16;
   }
+  &__descBtn {
+    margin-left: vars.$gutter-s;
+    background-color: transparent;
+    color: vars.$clr-blue;
+
+    @include mixins.my_transition(color);
+
+    &:hover {
+      color: vars.$clr-darkBlue;
+    }
+  }
+
+  &__descBtnText {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
 
   &__image {
     width: vars.$detailsProduct-img-size;
