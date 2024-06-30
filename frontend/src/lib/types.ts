@@ -44,6 +44,7 @@ export type ItemDetails = {
   free_shipping: boolean
   sold_quantity: number
   description: string
+  categories: string[]
 }
 
 export type ProductDetailsData = {

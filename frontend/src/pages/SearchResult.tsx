@@ -32,12 +32,14 @@ const SearchResult = () => {
   }
 
   return (
-    <section className="searchResults">
+    <>
       <BreadCrumb categoriesList={categoriesList as string[]} />
-      {data?.items.map((item: SearchedItem) => {
-        return <ProductCard key={item.id} {...item} />
-      })}
-    </section>
+      <section className="searchResults">
+        {data?.items.map((item: SearchedItem) => {
+          return <ProductCard key={item.id} {...item} />
+        })}
+      </section>
+    </>
   )
 }
 

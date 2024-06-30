@@ -34,7 +34,7 @@ function ProductDetails() {
 
   return (
     <>
-      <BreadCrumb categoriesList={[""]} />
+      <BreadCrumb categoriesList={productData.item.categories} />
       <section className="productDetails">
         <div className="productDetails__content">
           <div className="productDetails__info">
