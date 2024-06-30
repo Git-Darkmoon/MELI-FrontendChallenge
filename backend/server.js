@@ -65,6 +65,12 @@ app.get("/api/items/:productID", async (req, res) => {
 
     const itemData = itemResponse.data
     const descriptionData = descriptionResponse.data
+    const { category_id } = itemData
+
+    const categoriesResponse = await meliFetch(`/categories/${category_id}`)
+    const categoriesList = categoriesResponse.data.path_from_root.map(
+      (category) => category.name
+    )
 
     const productDetailsData = {
       author: AUTHOR,
@@ -82,6 +88,7 @@ app.get("/api/items/:productID", async (req, res) => {
         sold_quantity: itemData.initial_quantity,
         description: descriptionData.plain_text,
       },
+      categories: categoriesList,
     }
 
     return res.json(productDetailsData)
