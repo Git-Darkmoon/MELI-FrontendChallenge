@@ -1,0 +1,9 @@
+@use "../utils/mixins" as mixins;
+@use "../utils/variables" as vars;
+
+.notFound {
+  @include mixins.flexy(center, center, column);
+  gap: vars.$gutter-s;
+  text-align: center;
+  min-height: calc(100vh - vars.$nav-height);
+}

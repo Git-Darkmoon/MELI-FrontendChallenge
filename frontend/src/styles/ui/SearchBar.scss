@@ -23,7 +23,8 @@
   }
 
   &__form {
-    @include mixins.flexy(center, center);
+    display: flex;
+    justify-content: center;
     flex-grow: 1;
     box-shadow: vars.$shadow;
   }
@@ -43,6 +44,9 @@
   }
 
   &__submitBtn {
+    display: grid;
+    place-items: center;
+
     padding-block: vars.$navbar-paddingY;
     padding-inline: vars.$navbar-paddingX;
 
@@ -50,5 +54,11 @@
 
     border-bottom-right-radius: vars.$border-radius;
     border-top-right-radius: vars.$border-radius;
+    background-color: vars.$clr-gray-100;
+    @include mixins.my_transition(background-color);
+
+    &:hover {
+      background-color: vars.$clr-white;
+    }
   }
 }
