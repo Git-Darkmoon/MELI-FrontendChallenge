@@ -1,7 +1,6 @@
 # MELI Frontend Challenge
 
-[![image](https://github.com/Git-Darkmoon/MELI-FrontendChallenge/assets/80002392/29946249-d9a1-4818-a8ca-62f29f8927ac)
-](https://meli-react-challenge.vercel.app/)
+[![image](https://github.com/Git-Darkmoon/MELI-FrontendChallenge/assets/80002392/f9d98306-f9e7-4863-8840-ab23f54839a4)](https://meli-tech-interview.vercel.app/)
 
 
 ## Descripción del Challenge
@@ -35,3 +34,25 @@ Sigue los siguientes pasos para obtener una copia del proyecto:
    git clone https://github.com/Git-Darkmoon/MELI-FrontendChallenge
    cd MELI-FrontChallenge
    ```
+
+## API Reference
+Base url: `https://meli-challenge-api.vercel.app/`
+
+#### Get all items of the search
+
+```http
+  GET /api/items?q=:query
+```
+
+| Parameter | Type   | Description                  | Required |
+|-----------|--------|------------------------------|----------|
+| q         | string | The product to search        | Yes      |
+
+#### Get single item
+
+```http
+  GET /api/items/:productID
+```
+| Parameter | Type   | Description                  | Required |
+|-----------|--------|------------------------------|----------|
+| productID | string | Id of product to fetch       | Yes      |
