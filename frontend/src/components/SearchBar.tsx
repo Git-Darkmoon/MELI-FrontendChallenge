@@ -31,6 +31,7 @@ function SearchBar() {
             autoCorrect="off"
             autoComplete="off"
             spellCheck="false"
+            required
             name="search"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
